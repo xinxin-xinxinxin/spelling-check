@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单词拼写检查</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .word-container {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>单词拼写检查</h1>
+
+<div class="word-container">
+    <label for="freeze">1.  (动词) - 冻结；使冷冻</label><br>
+    <input type="text" id="freeze" name="freeze"><br>
+</div>
+
+<div class="word-container">
+    <label for="predict">2.  (动词) - 预测；预言</label><br>
+    <input type="text" id="predict" name="predict"><br>
+</div>
+
+<div class="word-container">
+    <label for="benefit">3.  (名词) - 利益；好处</label><br>
+    <input type="text" id="benefit" name="benefit"><br>
+</div>
+
+<div class="word-container">
+    <label for="wild">4.  (形容词) - 野生的；狂野的</label><br>
+    <input type="text" id="wild" name="wild"><br>
+</div>
+
+<div class="word-container">
+    <label for="explore">5.  (动词) - 探索；探险</label><br>
+    <input type="text" id="explore" name="explore"><br>
+</div>
+
+<div class="word-container">
+    <label for="appear">6.  (动词) - 出现；显得</label><br>
+    <input type="text" id="appear" name="appear"><br>
+</div>
+
+<div class="word-container">
+    <label for="permit">7.  (动词) - 允许；许可</label><br>
+    <input type="text" id="permit" name="permit"><br>
+</div>
+
+<div class="word-container">
+    <label for="mild">8.  (形容词) - 温和的；轻微的</label><br>
+    <input type="text" id="mild" name="mild"><br>
+</div>
+
+<div class="word-container">
+    <label for="supply">9.  (名词) - 供应；供给</label><br>
+    <input type="text" id="supply" name="supply"><br>
+</div>
+
+<button onclick="checkSpelling()">提交</button>
+
+<div class="result" id="result"></div>
+
+<script>
+    function checkSpelling() {
+        const correctAnswers = {
+            freeze: "freeze",
+            predict: "predict",
+            benefit: "benefit",
+            wild: "wild",
+            explore: "explore",
+            appear: "appear",
+            permit: "permit",
+            mild: "mild",
+            supply: "supply"
+        };
+
+        let correctCount = 0;
+
+        for (const word in correctAnswers) {
+            const userInput = document.getElementById(word).value.trim().toLowerCase();
+            if (userInput === correctAnswers[word]) {
+                correctCount++;
+            }
+        }
+
+        document.getElementById("result").innerText = `你拼写正确的单词数量是：${correctCount}`;
+    }
+</script>
+
+</body>
+</html>
